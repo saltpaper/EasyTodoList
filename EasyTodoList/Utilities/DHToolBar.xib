@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="G61-eR-pey" customClass="DHToolBar" customModule="EasyTodoList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <items>
+                <barButtonItem title="Cancel" style="done" id="hui-kG-9vV"/>
+                <barButtonItem width="236" style="plain" systemItem="fixedSpace" id="ENB-9z-67f"/>
+                <barButtonItem title="Done" style="done" id="XYl-k3-95C"/>
+            </items>
+            <connections>
+                <outlet property="cancelButton" destination="hui-kG-9vV" id="MFB-Uo-aqf"/>
+                <outlet property="doneButton" destination="XYl-k3-95C" id="IqZ-We-wpR"/>
+            </connections>
+            <point key="canvasLocation" x="74" y="-13"/>
+        </toolbar>
+    </objects>
+</document>
