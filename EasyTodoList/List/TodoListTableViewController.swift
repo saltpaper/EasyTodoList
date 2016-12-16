@@ -186,6 +186,7 @@ final class TodoListTableViewController: UITableViewController {
         }catch {
             print("fetch failed☹️")
         }
+        self.sortBy()
         tableView.reloadData()
         
     }
