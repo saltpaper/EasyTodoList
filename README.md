@@ -9,7 +9,6 @@ Local DB: CoreData
 
 Server: Google spreadsheets (use https://sheetsu.com to turn google spreadsheets into REST API.) 
 
-<pre><code>this is block</code></pre>
 
 # Requirements
 - Swift 3.0
