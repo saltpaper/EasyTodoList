@@ -1,7 +1,10 @@
 # EasyTodoList
-This is a easy TODO list iOS project in swift 3.0. 
+This is an easy TODO list iOS project in swift 3.0. 
+- able to add/remove a task.
+- can view list when offline.
+-	If new task is added offline, able sync the new task when online.
 
-
+# Database
 Local DB: CoreData
 
 Server: Google spreadsheets (use https://sheetsu.com to turn google spreadsheets into REST API.) 
@@ -13,4 +16,4 @@ Server: Google spreadsheets (use https://sheetsu.com to turn google spreadsheets
 - iOS 10.0
 
 # License
-<br>MIT
+MIT
