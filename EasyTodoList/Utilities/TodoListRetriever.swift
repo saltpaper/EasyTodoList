@@ -13,7 +13,7 @@ class TodoListRetriever: NSObject {
     //get task list
     class func getTaskList(success: @escaping (_ tasklList: [[String: AnyObject]]) -> Void, failure: @escaping (_ error: NSError?) -> Void) {
 
-        RequestClient.shareInstance.request(requestType: .Get, url: fetchDataURL, parameters: [:], succeed: { (response) in
+        RequestClient.shareInstance.request(requestType: .Get, url: TODO_Constant.fetchDataURL, parameters: [:], succeed: { (response) in
             guard let dicArray = response as? [[String: Any]] else {
                 return
             }
@@ -33,7 +33,7 @@ class TodoListRetriever: NSObject {
     // upload a task item
     class func uploadATaskToServer(taskItem:Task,  success: @escaping (_ isSuccess: Bool) -> Void, failure: @escaping (_ error: NSError?) -> Void) {
         
-        RequestClient.shareInstance.request(requestType: .Post, url: fetchDataURL, parameters: taskItem.transformToDic(), succeed: { (response) in
+        RequestClient.shareInstance.request(requestType: .Post, url: TODO_Constant.fetchDataURL, parameters: taskItem.transformToDic(), succeed: { (response) in
             guard let dicArray = response as? [[String: Any]] else {
                 return
             }
@@ -57,7 +57,7 @@ class TodoListRetriever: NSObject {
             items.append(task.transformToDic() as [String : AnyObject])
         }
         
-        RequestClient.shareInstance.request(requestType: .Post, url: fetchDataURL, parameters: ["rows":items], succeed: { (response) in
+        RequestClient.shareInstance.request(requestType: .Post, url: TODO_Constant.fetchDataURL, parameters: ["rows":items], succeed: { (response) in
             guard let dicArray = response as? [[String: Any]] else {
                 return
             }
@@ -75,7 +75,7 @@ class TodoListRetriever: NSObject {
 
     class func deleteATaskToServer(taskId:String,  success: @escaping (_ isSuccess: Bool) -> Void, failure: @escaping (_ error: NSError?) -> Void) {
         
-        let path = fetchDataURL + "/taskId/\(taskId)"
+        let path = TODO_Constant.fetchDataURL + "/taskId/\(taskId)"
         RequestClient.shareInstance.request(requestType: .Delete, url: path, parameters: [:], succeed: { (response) in
             success(true)
             

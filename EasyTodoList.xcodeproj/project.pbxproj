@@ -13,6 +13,12 @@
 		222BF4691DFFDBC300F89193 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222BF4681DFFDBC300F89193 /* AddTaskViewController.swift */; };
 		222BF46C1DFFEA6D00F89193 /* TodoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222BF46B1DFFEA6D00F89193 /* TodoListTableViewController.swift */; };
 		222BF46F1E00316000F89193 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222BF46E1E00316000F89193 /* TodoTableViewCell.swift */; };
+		22482BBF1E08D94A001EC73C /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22482BBE1E08D94A001EC73C /* FeatureViewController.swift */; };
+		22482BC51E0A1BDD001EC73C /* PresentAnimationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22482BC41E0A1BDD001EC73C /* PresentAnimationTransition.swift */; };
+		22482BC71E0A5669001EC73C /* DismissAnimationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22482BC61E0A5669001EC73C /* DismissAnimationTransition.swift */; };
+		224D14C51E125C4300A854D4 /* TODO_Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D14C41E125C4200A854D4 /* TODO_Constant.swift */; };
+		224D14C71E129B3000A854D4 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D14C61E129B3000A854D4 /* ColorCollectionViewCell.swift */; };
+		224D14C91E129C4D00A854D4 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224D14C81E129C4D00A854D4 /* ColorCollectionViewCell.xib */; };
 		2261E8991E010320006C0DB0 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8981E010320006C0DB0 /* UIColorExt.swift */; };
 		22870DA11DFF90390047A757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22870DA01DFF90390047A757 /* AppDelegate.swift */; };
 		22870DA61DFF90390047A757 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22870DA41DFF90390047A757 /* Main.storyboard */; };
@@ -24,7 +30,6 @@
 		228FF3D41E00E9C300B775F6 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228FF3D01E00E9C300B775F6 /* FontAwesome.swift */; };
 		228FF3D51E00E9C300B775F6 /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228FF3D11E00E9C300B775F6 /* FontAwesomeView.swift */; };
 		22AEC9FE1E0245CC00E09F90 /* RequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AEC9FD1E0245CC00E09F90 /* RequestClient.swift */; };
-		22AECA001E0254F100E09F90 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AEC9FF1E0254F000E09F90 /* Constant.swift */; };
 		22E8C5801E02A72C0052D93A /* TodoListRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C57F1E02A72C0052D93A /* TodoListRetriever.swift */; };
 		22E8C5821E02CD180052D93A /* TaskClassExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C5811E02CD180052D93A /* TaskClassExt.swift */; };
 		22E9AB3E1E03689A002C6A1A /* UIBarButtonItemExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9AB3D1E036899002C6A1A /* UIBarButtonItemExt.swift */; };
@@ -38,6 +43,12 @@
 		222BF4681DFFDBC300F89193 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTaskViewController.swift; path = List/AddTaskViewController.swift; sourceTree = "<group>"; };
 		222BF46B1DFFEA6D00F89193 /* TodoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoListTableViewController.swift; path = List/TodoListTableViewController.swift; sourceTree = "<group>"; };
 		222BF46E1E00316000F89193 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoTableViewCell.swift; path = List/TodoTableViewCell.swift; sourceTree = "<group>"; };
+		22482BBE1E08D94A001EC73C /* FeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureViewController.swift; path = List/FeatureViewController.swift; sourceTree = "<group>"; };
+		22482BC41E0A1BDD001EC73C /* PresentAnimationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentAnimationTransition.swift; path = Utilities/PresentAnimationTransition.swift; sourceTree = "<group>"; };
+		22482BC61E0A5669001EC73C /* DismissAnimationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DismissAnimationTransition.swift; path = Utilities/DismissAnimationTransition.swift; sourceTree = "<group>"; };
+		224D14C41E125C4200A854D4 /* TODO_Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TODO_Constant.swift; path = Utilities/TODO_Constant.swift; sourceTree = "<group>"; };
+		224D14C61E129B3000A854D4 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorCollectionViewCell.swift; path = List/ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		224D14C81E129C4D00A854D4 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ColorCollectionViewCell.xib; path = List/ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		2261E8981E010320006C0DB0 /* UIColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExt.swift; path = Utilities/UIColorExt.swift; sourceTree = "<group>"; };
 		22870D9D1DFF90390047A757 /* EasyTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22870DA01DFF90390047A757 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +63,6 @@
 		228FF3D01E00E9C300B775F6 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = Library/FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
 		228FF3D11E00E9C300B775F6 /* FontAwesomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = Library/FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
 		22AEC9FD1E0245CC00E09F90 /* RequestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestClient.swift; path = Utilities/RequestClient.swift; sourceTree = "<group>"; };
-		22AEC9FF1E0254F000E09F90 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Utilities/Constant.swift; sourceTree = "<group>"; };
 		22E8C57F1E02A72C0052D93A /* TodoListRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoListRetriever.swift; path = Utilities/TodoListRetriever.swift; sourceTree = "<group>"; };
 		22E8C5811E02CD180052D93A /* TaskClassExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskClassExt.swift; path = Model/TaskClassExt.swift; sourceTree = "<group>"; };
 		22E9AB3D1E036899002C6A1A /* UIBarButtonItemExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExt.swift; path = Utilities/UIBarButtonItemExt.swift; sourceTree = "<group>"; };
@@ -86,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				222BF46E1E00316000F89193 /* TodoTableViewCell.swift */,
+				224D14C61E129B3000A854D4 /* ColorCollectionViewCell.swift */,
+				224D14C81E129C4D00A854D4 /* ColorCollectionViewCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -95,8 +107,10 @@
 			children = (
 				22E9AB3F1E038402002C6A1A /* VIew */,
 				22E8C5831E02DE200052D93A /* Extension */,
-				22AEC9FF1E0254F000E09F90 /* Constant.swift */,
 				22AEC9FD1E0245CC00E09F90 /* RequestClient.swift */,
+				224D14C41E125C4200A854D4 /* TODO_Constant.swift */,
+				22482BC41E0A1BDD001EC73C /* PresentAnimationTransition.swift */,
+				22482BC61E0A5669001EC73C /* DismissAnimationTransition.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -161,6 +175,7 @@
 			children = (
 				222BF46B1DFFEA6D00F89193 /* TodoListTableViewController.swift */,
 				222BF4681DFFDBC300F89193 /* AddTaskViewController.swift */,
+				22482BBE1E08D94A001EC73C /* FeatureViewController.swift */,
 				222BF46D1E00312900F89193 /* Cell */,
 			);
 			name = list;
@@ -268,6 +283,7 @@
 				2220474D1E01361B003D2753 /* DHToolBar.xib in Resources */,
 				22870DAB1DFF903A0047A757 /* Assets.xcassets in Resources */,
 				228FF3D31E00E9C300B775F6 /* FontAwesome.otf in Resources */,
+				224D14C91E129C4D00A854D4 /* ColorCollectionViewCell.xib in Resources */,
 				22870DA61DFF90390047A757 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				222BF4691DFFDBC300F89193 /* AddTaskViewController.swift in Sources */,
+				224D14C51E125C4300A854D4 /* TODO_Constant.swift in Sources */,
 				2220474B1E01355D003D2753 /* DHToolBar.swift in Sources */,
 				22E8C5801E02A72C0052D93A /* TodoListRetriever.swift in Sources */,
 				222BF46C1DFFEA6D00F89193 /* TodoListTableViewController.swift in Sources */,
@@ -336,10 +353,13 @@
 				2261E8991E010320006C0DB0 /* UIColorExt.swift in Sources */,
 				22E8C5821E02CD180052D93A /* TaskClassExt.swift in Sources */,
 				22E9AB3E1E03689A002C6A1A /* UIBarButtonItemExt.swift in Sources */,
+				224D14C71E129B3000A854D4 /* ColorCollectionViewCell.swift in Sources */,
 				228FF3D51E00E9C300B775F6 /* FontAwesomeView.swift in Sources */,
+				22482BBF1E08D94A001EC73C /* FeatureViewController.swift in Sources */,
+				22482BC71E0A5669001EC73C /* DismissAnimationTransition.swift in Sources */,
 				222BF46F1E00316000F89193 /* TodoTableViewCell.swift in Sources */,
 				22870DA91DFF903A0047A757 /* EasyTodoList.xcdatamodeld in Sources */,
-				22AECA001E0254F100E09F90 /* Constant.swift in Sources */,
+				22482BC51E0A1BDD001EC73C /* PresentAnimationTransition.swift in Sources */,
 				228FF3D41E00E9C300B775F6 /* FontAwesome.swift in Sources */,
 				22870DA11DFF90390047A757 /* AppDelegate.swift in Sources */,
 				22AEC9FE1E0245CC00E09F90 /* RequestClient.swift in Sources */,

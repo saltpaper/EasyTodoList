@@ -14,9 +14,9 @@ extension Task {
         var dic = [String: Any]()
         dic["taskId"] = self.taskId
         dic["taskTitle"] = self.taskTitle
-        dic["taskDate"] = (self.taskDate as! Date).displayDate(dateFormat: dateSystemFormatter)
+        dic["taskDate"] = (self.taskDate as! Date).displayDate(dateFormat: TODO_Constant.dateSystemFormatter)
         dic["isFinish"] = self.isFinish
-        dic["createTime"] = (self.createTime as! Date).displayDate(dateFormat: dateSystemFormatter)
+        dic["createTime"] = (self.createTime as! Date).displayDate(dateFormat: TODO_Constant.dateSystemFormatter)
         dic["taskRemark"] = self.taskRemark
         dic["tagColor"] = self.tagColor
 
@@ -26,7 +26,7 @@ extension Task {
     func dicTransformToTask(dic:[String:Any]) {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateSystemFormatter
+        dateFormatter.dateFormat = TODO_Constant.dateSystemFormatter
         dateFormatter.timeZone = TimeZone.ReferenceType.local
 
         if let title = dic["taskTitle"] as? String {
@@ -59,10 +59,10 @@ extension Task {
             self.isFinish = false
         }
 
-        if let color = dic["tagColor"] as? Int16 {
+        if let color = dic["tagColor"] as? String {
             self.tagColor = color
         }else {
-            self.tagColor = 0
+            self.tagColor = ""
         }
         
     }

@@ -9,46 +9,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EasyTodoList/Model/TaskClassExt.swift"
-            timestampString = "503547447.255381"
+            filePath = "EasyTodoList/List/FeatureCollectionViewController.swift"
+            timestampString = "503996175.999342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "dicTransformToTask(dic:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "touchesBegan(_:with:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EasyTodoList.Task.dicTransformToTask (dic : Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "EasyTodoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dj/Documents/iOS/interview_test/EasyTodoList/EasyTodoList/Model/TaskClassExt.swift"
-                  timestampString = "503552404.114"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1316">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EasyTodoList.Task.dicTransformToTask (dic : Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "EasyTodoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dj/Documents/iOS/interview_test/EasyTodoList/EasyTodoList/Model/TaskClassExt.swift"
-                  timestampString = "503552404.117588"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1780">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EasyTodoList/List/AddTaskViewController.swift"
+            timestampString = "504585867.21046"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "animationController(forDismissed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EasyTodoList/List/AddTaskViewController.swift"
+            timestampString = "504530200.821289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

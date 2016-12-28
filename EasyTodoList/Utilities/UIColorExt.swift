@@ -16,8 +16,8 @@ extension UIColor {
         var alpha: CGFloat = 1.0
         
         if rgba.hasPrefix("#") {
-            let index   = rgba.index(rgba.startIndex, offsetBy: 1)//.startIndex.advancedBy(1)
-            let hex     = rgba.substring(to: index) //substringFromIndex(index)
+            let index   = rgba.index(rgba.startIndex, offsetBy: 1)
+            let hex     = rgba.substring(from: index) //substringFromIndex(index)
             let scanner = Scanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
             if scanner.scanHexInt64(&hexValue) {
@@ -65,7 +65,10 @@ extension UIColor {
         return UIColor(red: 102 / 255.0, green: 108 / 255.0, blue: 113 / 255.0, alpha: alpha)
     }
     
-    
+    class func checkGreenColor() -> UIColor {
+        return UIColor(red: 34 / 255, green: 178 / 255, blue: 80 / 255, alpha: 1)
+    }
+
 
     
     

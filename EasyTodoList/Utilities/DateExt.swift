@@ -11,7 +11,7 @@ import UIKit
 extension Date {
     
     
-    func displayDate(dateFormat:String = dateWeekFormatter) -> String {
+    func displayDate(dateFormat:String = TODO_Constant.dateWeekFormatter) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         dateFormatter.timeZone = NSTimeZone.system

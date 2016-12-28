@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import AFNetworking
 
-final class AddTaskViewController: UIViewController,UITextFieldDelegate {
+final class AddTaskViewController: UIViewController,UITextFieldDelegate,UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var isFinishButton: UIButton!
     @IBOutlet weak var dateTextField: UITextField!
@@ -23,9 +23,11 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate {
     var selectedDate: Date! // store selected date on datepicker
     var datePicker: UIDatePicker!
     
+    var selectedTagColor:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.fontAwesomeBarButtonItem(fontIconString:"fa-times",target: self, selector: #selector(self.didClickCancelButton(sender:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.fontAwesomeBarButtonItem(fontIconString:"fa-check",target: self, selector: #selector(self.didClickDoneButton(sender:)))
         
@@ -53,7 +55,7 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate {
         dateTextField.inputAccessoryView = toolBar
         
         self.automaticallyAdjustsScrollViewInsets = false
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +73,12 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate {
             selectedDate = Date()
             self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
+        
+        if let _selectedColor = selectedTagColor {
+            featureButton.setTitleColor(UIColor.init(rgba: _selectedColor), for: .normal)
+        }
+        
+        
     }
     
     
@@ -81,7 +89,6 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate {
         }else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
-        
         return true
     }
     
@@ -101,6 +108,20 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate {
          isFinishButton.isSelected = !sender.isSelected
     }
     
+    @IBAction func didClickFeatureButtonAction(_ sender: UIButton) {
+        let featureVC = FeatureViewController()
+        featureVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        featureVC.transitioningDelegate = self
+        featureVC.selectedColorBlock = ({[unowned self](colorString) in
+            self.selectedTagColor = colorString
+            sender.setTitleColor(UIColor.init(rgba: colorString), for: .normal)
+        })
+        
+        featureVC.selectedColor = selectedTagColor
+        self.present(featureVC, animated: true, completion: nil)
+    }
+    
+    
     //MARK: UIBarButtonItem action
     func didClickCancelButton(sender:UIBarButtonItem){
         self.dismiss(animated: true, completion: nil)
@@ -115,7 +136,10 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate {
         task.taskRemark = taskRemarkTextView.text
         task.createTime = NSDate()
         task.isFinish = isFinishButton.isSelected
-        task.taskId = (NSDate() as Date).displayDate(dateFormat: dateWholeFormatter)
+        task.taskId = (NSDate() as Date).displayDate(dateFormat: TODO_Constant.dateWholeFormatter)
+        if let _selectedColor = selectedTagColor {
+            task.tagColor = _selectedColor
+        }
         //save data
         AppDelegate.sharedDelegate().saveContext()
         
@@ -140,5 +164,19 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate {
     func didClickToolBarCancelButton() {
         resignFirstResponder()
     }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
+    
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return presentAnimationTransition()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimationTransition()
+    }
+    
     
 }

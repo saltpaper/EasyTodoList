@@ -156,6 +156,12 @@ final class TodoListTableViewController: UITableViewController {
         cell.taskDateLabel.text = (task.taskDate as! Date).displayDate()
         cell.isFinishBoxButton.isSelected = task.isFinish
         cell.isFinishBoxButton.tag = indexPath.row
+        
+        if let _colorString = task.tagColor {
+            cell.isFinishBoxButton.setTitleColor(UIColor.init(rgba: _colorString), for: .normal)
+            cell.isFinishBoxButton.setTitleColor(UIColor.init(rgba: _colorString), for: .selected)
+        }
+        
         return cell
     }
     
