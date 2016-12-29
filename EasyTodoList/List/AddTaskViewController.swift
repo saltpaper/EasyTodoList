@@ -23,12 +23,11 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate,UIViewCo
     var selectedDate: Date! // store selected date on datepicker
     var datePicker: UIDatePicker!
     
-    var selectedTagColor:String?
+    var selectedTagColor:String? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.fontAwesomeBarButtonItem(fontIconString:"fa-times",target: self, selector: #selector(self.didClickCancelButton(sender:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.fontAwesomeBarButtonItem(fontIconString:"fa-check",target: self, selector: #selector(self.didClickDoneButton(sender:)))
         
         isFinishButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 17.0)
@@ -42,7 +41,7 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate,UIViewCo
         featureButton.setTitle(String.fontAwesomeIcon(code: "fa-th-large"), for: .normal)
         
         taskTitleTextField.delegate = self
-        taskTitleTextField.placeholder = "Title"
+        taskTitleTextField.placeholder = NSLocalizedString("Todo.task_title", comment: "Title")
 
         datePicker = UIDatePicker.init()
         datePicker.datePickerMode = UIDatePickerMode.date
@@ -55,7 +54,6 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate,UIViewCo
         dateTextField.inputAccessoryView = toolBar
         
         self.automaticallyAdjustsScrollViewInsets = false
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,19 +63,22 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate,UIViewCo
             taskTitleTextField.text = _task.taskTitle
             dateTextField.text = (_task.taskDate as! Date).displayDate()
             selectedDate = _task.taskDate as Date!
-             isFinishButton.isSelected = _task.isFinish
+            isFinishButton.isSelected = _task.isFinish
+            taskRemarkTextView.text = _task.taskRemark
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.fontAwesomeBarButtonItem(fontIconString:"fa-chevron-left",target: self, selector: #selector(self.didClickBackButton(sender:)))
             
+            if let _selectedColor = _task.tagColor {
+                featureButton.setTitleColor(UIColor.init(rgba: _selectedColor), for: .normal)
+                selectedTagColor = _selectedColor
+            }
+
         }else {
             //create new task
             dateTextField.text = Date().displayDate()
             selectedDate = Date()
             self.navigationItem.rightBarButtonItem?.isEnabled = false
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.fontAwesomeBarButtonItem(fontIconString:"fa-times",target: self, selector: #selector(self.didClickCancelButton(sender:)))
         }
-        
-        if let _selectedColor = selectedTagColor {
-            featureButton.setTitleColor(UIColor.init(rgba: _selectedColor), for: .normal)
-        }
-        
         
     }
     
@@ -127,30 +128,72 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate,UIViewCo
         self.dismiss(animated: true, completion: nil)
     }
     
+    func didClickBackButton(sender:UIBarButtonItem){
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+
     func didClickDoneButton(sender:UIBarButtonItem){
-        //1. store new task on local
         let context = AppDelegate.sharedDelegate().persistentContainer.viewContext
-        let task = Task(context: context)
+
+        if let _task = task,let tempTask = context.object(with: _task.objectID) as? Task {
+            // Edit task
+            self.configureTaskField(task: tempTask)
+
+            //save data
+            AppDelegate.sharedDelegate().saveContext()
+
+            // call server
+            TodoListRetriever.editTaskToServer(taskId: _task.taskId!, taskItem: tempTask.transformToDic(), success: { (success) in
+                // success
+                //_ = self.navigationController?.popViewController(animated: true)
+            }){ (error) in
+                // failure -- need to show alertView with message: "sync failure"
+                //display alert
+                let alert = UIAlertController(title: NSLocalizedString("app.warning", comment: "Warning"), message: "server failure", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("app.cancel", comment: "Cancel"), style: .cancel, handler: { (action) -> Void in
+
+                }))
+
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            _ = self.navigationController?.popViewController(animated: true)
+
+ 
+        }else {
+            // Create new task
+            //1. store new task on local
+            let newTask = Task(context: context)
+            self.configureTaskField(task: newTask)
+            newTask.createTime = NSDate()
+            newTask.taskId = (NSDate() as Date).displayDate(dateFormat: TODO_Constant.dateWholeFormatter)
+
+            //save data
+            AppDelegate.sharedDelegate().saveContext()
+            
+            //2. upload to server
+            TodoListRetriever.uploadATaskToServer(taskItem: newTask, success: { (success) in
+                // success
+            }){ (error) in
+                // failure -- need to show alertView with message: "sync failure"
+            }
+            self.dismiss(animated: true, completion: nil)
+
+        }
+        
+    }
+    
+    
+    func configureTaskField(task:Task,isEdit:Bool = false){
+        
         task.taskTitle = taskTitleTextField.text
         task.taskDate = selectedDate as NSDate?
         task.taskRemark = taskRemarkTextView.text
-        task.createTime = NSDate()
         task.isFinish = isFinishButton.isSelected
-        task.taskId = (NSDate() as Date).displayDate(dateFormat: TODO_Constant.dateWholeFormatter)
         if let _selectedColor = selectedTagColor {
             task.tagColor = _selectedColor
         }
-        //save data
-        AppDelegate.sharedDelegate().saveContext()
         
-        //2. upload to server 
-        TodoListRetriever.uploadATaskToServer(taskItem: task, success: { (success) in
-            // success
-        }){ (error) in
-            // failure -- need to show alertView with message: "sync failure"
-        }        
-        
-        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -168,7 +211,6 @@ final class AddTaskViewController: UIViewController,UITextFieldDelegate,UIViewCo
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        self.dismiss(animated: true, completion: nil)
 //    }
-    
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return presentAnimationTransition()

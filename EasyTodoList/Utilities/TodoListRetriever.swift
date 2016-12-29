@@ -89,6 +89,22 @@ class TodoListRetriever: NSObject {
     }
 
     
+    class func editTaskToServer(taskId:String,taskItem:[String:Any],  success: @escaping (_ isSuccess: Bool) -> Void, failure: @escaping (_ error: NSError?) -> Void) {
+        
+        let path = TODO_Constant.fetchDataURL + "/taskId/\(taskId)"
+        RequestClient.shareInstance.request(requestType: .Patch, url: path, parameters:  taskItem, succeed: { (response) in
+            success(true)
+            
+        }) { (error) in
+            
+            guard let error = error else {
+                return
+            }
+            failure(error as NSError?)
+        }
+    }
+
+    
 
     
 }

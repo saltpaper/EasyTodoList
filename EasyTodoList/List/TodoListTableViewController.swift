@@ -18,12 +18,11 @@ final class TodoListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         
-        self.title = "All Tasks"
+        self.title = NSLocalizedString("Todo.All_Tasks", comment: "All Tasks")//NSLocalizedString("Todo.All_Tasks", tableName: nil, bundle: Bundle.main, value: "", comment: "")
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.fontAwesomeBarButtonItem(fontIconString:"fa-plus",target: self, selector: #selector(self.didClickAddButton(sender:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.fontAwesomeBarButtonItem(fontIconString:"fa-sort-amount-desc",target: self, selector: #selector(self.didClickSortButton(sender:)))
 
         self.tableView.tableFooterView = UIView()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityDidChange(notification:)),  name: NSNotification.Name.AFNetworkingReachabilityDidChange, object: nil)
         
     }
@@ -157,7 +156,7 @@ final class TodoListTableViewController: UITableViewController {
         cell.isFinishBoxButton.isSelected = task.isFinish
         cell.isFinishBoxButton.tag = indexPath.row
         
-        if let _colorString = task.tagColor {
+        if let _colorString = task.tagColor, _colorString.hasPrefix("#") {
             cell.isFinishBoxButton.setTitleColor(UIColor.init(rgba: _colorString), for: .normal)
             cell.isFinishBoxButton.setTitleColor(UIColor.init(rgba: _colorString), for: .selected)
         }
@@ -166,7 +165,7 @@ final class TodoListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.performSegue(withIdentifier: "editTaskSegue", sender: indexPath.row)
+        self.performSegue(withIdentifier: "editTaskSegue", sender: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -206,6 +205,25 @@ final class TodoListTableViewController: UITableViewController {
             _task.isFinish = sender.isSelected
         }
         AppDelegate.sharedDelegate().saveContext()
+        
+        
+        // call server
+        TodoListRetriever.editTaskToServer(taskId: task.taskId!, taskItem: ["isFinish":sender.isSelected], success: { (success) in
+            // success
+            
+
+        }){ (error) in
+            // failure -- need to show alertView with message: "sync failure"
+            //display alert
+            let alert = UIAlertController(title: NSLocalizedString("app.warning", comment: "Warning"), message: "server failure", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("app.cancel", comment: "Cancel"), style: .cancel, handler: { (action) -> Void in
+                
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        
     }
 
     func didClickAddButton(sender:UIBarButtonItem) {
@@ -214,13 +232,13 @@ final class TodoListTableViewController: UITableViewController {
     
     func didClickSortButton(sender:UIBarButtonItem) {
         
-        let alertController = UIAlertController(title:"Sort", message:nil,preferredStyle:UIAlertControllerStyle.actionSheet)
-        alertController.addAction(UIAlertAction(title: "By Create Date", style: .default, handler: { [unowned self] (action) -> Void in
+        let alertController = UIAlertController(title:NSLocalizedString("app.sort", comment: "Sort"), message:nil,preferredStyle:UIAlertControllerStyle.actionSheet)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Todo.sort_create_Date", comment: "By Create Date"), style: .default, handler: { [unowned self] (action) -> Void in
             self.sortByCreate = true
             self.sortBy()
             self.tableView.reloadData()
         }))
-        alertController.addAction(UIAlertAction(title: "By Task Date", style: .default, handler: { [unowned self](action) -> Void in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Todo.sort_task_Date", comment: "By Task Date"), style: .default, handler: { [unowned self](action) -> Void in
             self.sortByCreate = false
             self.sortBy()
             self.tableView.reloadData()
@@ -257,5 +275,12 @@ final class TodoListTableViewController: UITableViewController {
         return false
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTaskSegue", let index = sender as? Int,let taskVC = segue.destination as? AddTaskViewController {
+            let task = taskList[index]
+            taskVC.task = task
+            
+        }
+    }
     
 }

@@ -22,12 +22,10 @@ class TODO_Constant: NSObject {
     static let kBgBlue = "#CDEFF7"
     static let kBgRed = "#D5562A"
     static let kBgOrage = "#EF8B45"
-//    static let kBgPurple = "#D5562A"
+    static let kBgPurple = "#AFA3E5"
     static let kBgYellow = "#FBFF9A"
-    static let kBgGray = "#231f20"
+//    static let kBgGray = "#231f20"
     static let kBgBrown = "#E5E0CA"
     static let kBgWhite = "#CEC8CE"
-
-    static let colorArray = [kBgGreen,kBgBlue,kBgRed,kBgOrage,kBgYellow,kBgGray,kBgBrown,kBgWhite]
     
 }

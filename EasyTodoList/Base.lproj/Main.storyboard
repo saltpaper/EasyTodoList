@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoTableViewCell" id="5lT-qI-eUD" customClass="TodoTableViewCell" customModule="EasyTodoList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TodoTableViewCell" id="5lT-qI-eUD" customClass="TodoTableViewCell" customModule="EasyTodoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5lT-qI-eUD" id="qVJ-Kn-rr5">
@@ -76,6 +76,7 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="ueb-OL-CZX"/>
                     <connections>
                         <segue destination="6Yb-CH-yib" kind="presentation" identifier="addNewSegue" id="DLc-BY-b8k"/>
+                        <segue destination="3hm-9W-xV6" kind="show" identifier="editTaskSegue" id="1yi-G6-uly"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIf-pl-07v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,7 +89,7 @@
                 <navigationController id="6Yb-CH-yib" sceneMemberID="viewController">
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c85-bu-OeS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="c85-bu-OeS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -98,7 +99,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tQ-3g-4Hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="183" y="-304"/>
+            <point key="canvasLocation" x="18" y="105"/>
         </scene>
         <!--Add Task View Controller-->
         <scene sceneID="8nt-AW-7JS">
@@ -214,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKP-Pq-n7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045.5999999999999" y="-304.4977511244378"/>
+            <point key="canvasLocation" x="882" y="-304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="81d-H0-j46">
@@ -222,7 +223,7 @@
                 <navigationController storyboardIdentifier="ListNav" id="ai6-bZ-4z5" sceneMemberID="viewController">
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pI1-AN-xuR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pI1-AN-xuR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -235,4 +236,7 @@
             <point key="canvasLocation" x="-1698" y="-304"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1yi-G6-uly"/>
+    </inferredMetricsTieBreakers>
 </document>

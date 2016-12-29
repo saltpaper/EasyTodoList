@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  EasyTodoList
+
+  Created by DJ on 28/12/2016.
+  Copyright © 2016 DJ. All rights reserved.
+*/
+
+"Todo.All_Tasks" = "All Tasks";
+"Todo.task_title" = "Title";
+"Todo.sort_create_Date" = "By Create Date";
+"Todo.sort_task_Date" = "By Task Date";
+
+"app.cancel" = "Cancel";
+"app.sort"  = "Sort";
+"app.warning"  = "Warning";
+

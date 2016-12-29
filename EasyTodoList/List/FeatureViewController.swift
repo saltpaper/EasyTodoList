@@ -24,7 +24,7 @@ class FeatureViewController: UIViewController,UICollectionViewDelegate,UICollect
         return view
     }()
 
-    let colorArray = [TODO_Constant.kBgGreen,TODO_Constant.kBgBlue,TODO_Constant.kBgRed,TODO_Constant.kBgOrage,TODO_Constant.kBgYellow,TODO_Constant.kBgGray,TODO_Constant.kBgBrown,TODO_Constant.kBgWhite] // use to set task's tag color
+    let colorArray = [TODO_Constant.kBgGreen,TODO_Constant.kBgBlue,TODO_Constant.kBgRed,TODO_Constant.kBgOrage,TODO_Constant.kBgYellow,TODO_Constant.kBgPurple,TODO_Constant.kBgBrown,TODO_Constant.kBgWhite] // use to set task's tag color
 
     
     override func viewDidLoad() {

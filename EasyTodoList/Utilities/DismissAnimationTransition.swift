@@ -18,8 +18,6 @@ class DismissAnimationTransition: NSObject,UIViewControllerAnimatedTransitioning
         
         let fromVC = transitionContext.viewController(forKey: .from) as! FeatureViewController
 
-//        fromVC.dimBackgroundView.alpha = 1.0
-
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.0, options: .curveLinear, animations: {
             fromVC.dimBackgroundView.alpha = 0.0
 

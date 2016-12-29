@@ -16,8 +16,7 @@ class presentAnimationTransition: NSObject,UIViewControllerAnimatedTransitioning
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromVC = transitionContext.viewController(forKey: .from) //as! UINavigationController
-//        let fromVC = fromNavVC.viewControllers[0] as! AddTaskViewController
+        let fromVC = transitionContext.viewController(forKey: .from)
         let toVC = transitionContext.viewController(forKey: .to) as! FeatureViewController
         let container = transitionContext.containerView
         
@@ -27,12 +26,10 @@ class presentAnimationTransition: NSObject,UIViewControllerAnimatedTransitioning
         
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.0, options: .curveLinear, animations: {
             fromVC?.view.alpha = 0.6
-//            toVC.dimBackgroundView.alpha = 0
 
             toVC.collectionView.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height - TODO_Constant.changeColorControllerHeight, width: UIScreen.main.bounds.width, height: TODO_Constant.changeColorControllerHeight)
             
         }, completion: { (finish) in
-            
             
             transitionContext.completeTransition(true)
         })

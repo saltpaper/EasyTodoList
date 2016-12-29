@@ -13,6 +13,7 @@ enum RequestType {
     case Get
     case Post
     case Delete
+    case Patch
 }
 class RequestClient: AFHTTPSessionManager {
     
@@ -46,10 +47,16 @@ class RequestClient: AFHTTPSessionManager {
             post(url, parameters: parameters, progress: nil, success: successBlock, failure: failureBlock)
         }
         
+        // Delete request
         if requestType == .Delete {
             delete(url, parameters: parameters, success: successBlock, failure: failureBlock)
         }
         
+        // Patch request
+        if requestType == .Patch {
+            patch(url, parameters: parameters, success: successBlock, failure: failureBlock)
+        }
+
         
         
     }
