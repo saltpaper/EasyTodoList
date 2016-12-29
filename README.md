@@ -1,6 +1,6 @@
 # EasyTodoList
 This is an easy TODO list iOS project in swift 3.0. 
-- able to add/remove a task.
+- able to add/remove/edit a task.
 - can view list when offline.
 -	If new task is added offline, able sync the new task when online.
 
