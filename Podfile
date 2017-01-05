@@ -6,5 +6,7 @@ use_frameworks!
 target 'EasyTodoList' do
 pod 'AFNetworking', '~> 3.0'
 pod 'SwiftyJSON'
+pod 'FontAwesome.swift'
+
 end
 

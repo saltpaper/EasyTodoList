@@ -26,10 +26,6 @@
 		22870DA91DFF903A0047A757 /* EasyTodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22870DA71DFF903A0047A757 /* EasyTodoList.xcdatamodeld */; };
 		22870DAB1DFF903A0047A757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22870DAA1DFF903A0047A757 /* Assets.xcassets */; };
 		22870DAE1DFF903A0047A757 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22870DAC1DFF903A0047A757 /* LaunchScreen.storyboard */; };
-		228FF3D21E00E9C300B775F6 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228FF3CD1E00E9C300B775F6 /* Enum.swift */; };
-		228FF3D31E00E9C300B775F6 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 228FF3CF1E00E9C300B775F6 /* FontAwesome.otf */; };
-		228FF3D41E00E9C300B775F6 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228FF3D01E00E9C300B775F6 /* FontAwesome.swift */; };
-		228FF3D51E00E9C300B775F6 /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228FF3D11E00E9C300B775F6 /* FontAwesomeView.swift */; };
 		22AEC9FE1E0245CC00E09F90 /* RequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AEC9FD1E0245CC00E09F90 /* RequestClient.swift */; };
 		22E8C5801E02A72C0052D93A /* TodoListRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C57F1E02A72C0052D93A /* TodoListRetriever.swift */; };
 		22E8C5821E02CD180052D93A /* TaskClassExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C5811E02CD180052D93A /* TaskClassExt.swift */; };
@@ -62,11 +58,6 @@
 		22870DAA1DFF903A0047A757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22870DAD1DFF903A0047A757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22870DAF1DFF903A0047A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		228FF3CD1E00E9C300B775F6 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = Library/FontAwesome/Enum.swift; sourceTree = "<group>"; };
-		228FF3CE1E00E9C300B775F6 /* FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontAwesome.h; path = Library/FontAwesome/FontAwesome.h; sourceTree = "<group>"; };
-		228FF3CF1E00E9C300B775F6 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Library/FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
-		228FF3D01E00E9C300B775F6 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = Library/FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
-		228FF3D11E00E9C300B775F6 /* FontAwesomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = Library/FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
 		22AEC9FD1E0245CC00E09F90 /* RequestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestClient.swift; path = Utilities/RequestClient.swift; sourceTree = "<group>"; };
 		22E8C57F1E02A72C0052D93A /* TodoListRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoListRetriever.swift; path = Utilities/TodoListRetriever.swift; sourceTree = "<group>"; };
 		22E8C5811E02CD180052D93A /* TaskClassExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskClassExt.swift; path = Model/TaskClassExt.swift; sourceTree = "<group>"; };
@@ -107,15 +98,23 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		224D14D21E14FD2700A854D4 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				22482BC41E0A1BDD001EC73C /* PresentAnimationTransition.swift */,
+				22482BC61E0A5669001EC73C /* DismissAnimationTransition.swift */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 		2261E8971E0102E5006C0DB0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				22E9AB3F1E038402002C6A1A /* VIew */,
+				224D14D21E14FD2700A854D4 /* Animation */,
+				22E9AB3F1E038402002C6A1A /* View */,
 				22E8C5831E02DE200052D93A /* Extension */,
 				22AEC9FD1E0245CC00E09F90 /* RequestClient.swift */,
 				224D14C41E125C4200A854D4 /* TODO_Constant.swift */,
-				22482BC41E0A1BDD001EC73C /* PresentAnimationTransition.swift */,
-				22482BC61E0A5669001EC73C /* DismissAnimationTransition.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -159,21 +158,8 @@
 		228FF3CB1E00E7CD00B775F6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				228FF3CC1E00E96A00B775F6 /* FontAwesome */,
 			);
 			name = Library;
-			sourceTree = "<group>";
-		};
-		228FF3CC1E00E96A00B775F6 /* FontAwesome */ = {
-			isa = PBXGroup;
-			children = (
-				228FF3CD1E00E9C300B775F6 /* Enum.swift */,
-				228FF3CE1E00E9C300B775F6 /* FontAwesome.h */,
-				228FF3CF1E00E9C300B775F6 /* FontAwesome.otf */,
-				228FF3D01E00E9C300B775F6 /* FontAwesome.swift */,
-				228FF3D11E00E9C300B775F6 /* FontAwesomeView.swift */,
-			);
-			name = FontAwesome;
 			sourceTree = "<group>";
 		};
 		22C0E91F1DFFCB53002D0B11 /* list */ = {
@@ -197,13 +183,13 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
-		22E9AB3F1E038402002C6A1A /* VIew */ = {
+		22E9AB3F1E038402002C6A1A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2220474A1E01355D003D2753 /* DHToolBar.swift */,
 				2220474C1E01361B003D2753 /* DHToolBar.xib */,
 			);
-			name = VIew;
+			name = View;
 			sourceTree = "<group>";
 		};
 		42F41A39CE269692F7E4121F /* Pods */ = {
@@ -290,7 +276,6 @@
 				2220474D1E01361B003D2753 /* DHToolBar.xib in Resources */,
 				22870DAB1DFF903A0047A757 /* Assets.xcassets in Resources */,
 				224D14CE1E13BA5C00A854D4 /* Localizable.strings in Resources */,
-				228FF3D31E00E9C300B775F6 /* FontAwesome.otf in Resources */,
 				224D14C91E129C4D00A854D4 /* ColorCollectionViewCell.xib in Resources */,
 				22870DA61DFF90390047A757 /* Main.storyboard in Resources */,
 			);
@@ -356,19 +341,16 @@
 				2220474B1E01355D003D2753 /* DHToolBar.swift in Sources */,
 				22E8C5801E02A72C0052D93A /* TodoListRetriever.swift in Sources */,
 				222BF46C1DFFEA6D00F89193 /* TodoListTableViewController.swift in Sources */,
-				228FF3D21E00E9C300B775F6 /* Enum.swift in Sources */,
 				2220473A1E012016003D2753 /* DateExt.swift in Sources */,
 				2261E8991E010320006C0DB0 /* UIColorExt.swift in Sources */,
 				22E8C5821E02CD180052D93A /* TaskClassExt.swift in Sources */,
 				22E9AB3E1E03689A002C6A1A /* UIBarButtonItemExt.swift in Sources */,
 				224D14C71E129B3000A854D4 /* ColorCollectionViewCell.swift in Sources */,
-				228FF3D51E00E9C300B775F6 /* FontAwesomeView.swift in Sources */,
 				22482BBF1E08D94A001EC73C /* FeatureViewController.swift in Sources */,
 				22482BC71E0A5669001EC73C /* DismissAnimationTransition.swift in Sources */,
 				222BF46F1E00316000F89193 /* TodoTableViewCell.swift in Sources */,
 				22870DA91DFF903A0047A757 /* EasyTodoList.xcdatamodeld in Sources */,
 				22482BC51E0A1BDD001EC73C /* PresentAnimationTransition.swift in Sources */,
-				228FF3D41E00E9C300B775F6 /* FontAwesome.swift in Sources */,
 				22870DA11DFF90390047A757 /* AppDelegate.swift in Sources */,
 				22AEC9FE1E0245CC00E09F90 /* RequestClient.swift in Sources */,
 			);

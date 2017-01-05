@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import AFNetworking
+import FontAwesome_swift
 
 final class AddTaskViewController: UIViewController,UITextFieldDelegate,UIViewControllerTransitioningDelegate {
     
